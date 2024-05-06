@@ -9,7 +9,9 @@ export default function GeneralLayout({
   return (
     <>
       <NavBar />
-      {children}
+      <main className="lg:pt-16 lg:px-60 px-8 pt-8 min-h-[calc(100vh-111.2px)]">
+        {children}
+      </main>
       <Footer />
     </>
   );

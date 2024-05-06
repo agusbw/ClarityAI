@@ -6,18 +6,18 @@ const navItems: ReadonlyArray<{
   title: string;
 }> = [
   {
-    href: "#",
-    title: "How?",
+    href: "/",
+    title: "Home",
   },
   {
-    href: "#",
-    title: "Contact",
+    href: "/how",
+    title: "How?",
   },
 ];
 
 export default function NavBar() {
   return (
-    <nav className="px-16 py-4 border border-muted-foreground/20 flex items-center justify-between">
+    <nav className="lg:px-16 py-3  px-8 border border-muted-foreground/20 flex items-center justify-between">
       <div className="text-lg font-bold text-gradient">SummareaseAI</div>
       <div className="gap-x-4 flex font-semibold">
         {navItems.map((item) => (

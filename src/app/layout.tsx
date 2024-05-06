@@ -7,8 +7,8 @@ import "./globals.css";
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Summarease",
-  description: "Summarize your PDF easily with Summarease!",
+  title: "Fast, AI-powered PDF Summarizer",
+  description: "Summarize your PDF easily with SummareaseAI!",
 };
 
 export default function RootLayout({
@@ -19,10 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
+        className={cn("bg-background font-sans antialiased", fontSans.variable)}
       >
         {children}
       </body>
