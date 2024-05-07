@@ -123,7 +123,7 @@ export default function Summarizer() {
           </Select>
         </div>
         <Button
-          className="w-fit mx-auto rounded-full bg-teal-500/10 hover:bg-teal-500/20 font-semibold text-teal-600"
+          className="w-fit mx-auto rounded-full bg-accent/10 hover:bg-accent/20 font-semibold text-accent"
           onClick={handleSubmit}
           disabled={isLoading}
           size={"lg"}

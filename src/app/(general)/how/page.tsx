@@ -18,7 +18,7 @@ export default function HowPage() {
           <p>
             Above diagram illustrates the inner workings of{" "}
             <span className="font-semibold text-primary">
-              Clarity<span className="text-teal-500">AI</span>
+              Clarity<span className="text-accent">AI</span>
             </span>{" "}
             , our AI-powered summarization tool. Here&apos;s a breakdown of how
             it operates:
@@ -41,7 +41,7 @@ export default function HowPage() {
                 Utilization of Gemini Pro:
               </span>{" "}
               <span className="font-semibold text-primary">
-                Clarity<span className="text-teal-500">AI</span>
+                Clarity<span className="text-accent">AI</span>
               </span>{" "}
               harnesses the advanced capabilities of{" "}
               <span className="font-semibold">Gemini Pro</span> model, accessed
