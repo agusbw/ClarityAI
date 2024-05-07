@@ -3,7 +3,7 @@ import { Bookmark } from "lucide-react";
 
 export default function Header() {
   return (
-    <div className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row w-full md:justify-between md:items-center">
+    <div className="flex w-full flex-col gap-y-4 md:flex-row md:items-center md:justify-between md:gap-y-0">
       <div>
         <h2 className="text-4xl font-bold">
           Clarity<span className="text-accent">AI</span>

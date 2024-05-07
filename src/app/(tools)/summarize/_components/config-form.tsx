@@ -14,9 +14,9 @@ import Link from "next/link";
 
 export default function ConfigForm() {
   return (
-    <div className="p-5 flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-3 p-5">
       <div>
-        <h3 className="font-bold text-2xl">Configuration</h3>
+        <h3 className="text-2xl font-bold">Configuration</h3>
         <p className="text-sm text-muted-foreground">
           Add more context to make the summary better
         </p>

@@ -39,7 +39,7 @@ export const generateSummary = async (data: FormType) => {
   } catch (err) {
     console.error(err);
     throw new Error(
-      "Failed to produce summary, please check your API KEY and usage limit."
+      "Failed to produce summary, please check your API KEY and usage limit.",
     );
   }
 };

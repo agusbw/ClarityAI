@@ -6,20 +6,20 @@ import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col justify-center items-center px-5 lg:px-0">
+    <div className="flex w-full flex-col items-center justify-center px-5 lg:px-0">
       <Badge className="animate-bounce">Under development 🔨</Badge>
-      <Alert className="bg-accent/10 my-4 lg:max-w-lg">
+      <Alert className="my-4 bg-accent/10 lg:max-w-lg">
         <AlertTitle className="text-accent">Beta phase</AlertTitle>
         <AlertDescription className="text-accent">
           The app might have occasional bugs or limitations as we continue
           development. Currently only provides basic summarization.
         </AlertDescription>
       </Alert>
-      <div className="lg:px-80 text-center">
-        <h1 className="text-4xl lg:text-5xl font-bold  lg:pt-4">
+      <div className="text-center lg:px-80">
+        <h1 className="text-4xl font-bold lg:pt-4  lg:text-5xl">
           Introducing Clarity<span className="text-accent">AI</span>
         </h1>
-        <p className="text-center text-muted-foreground mt-4">
+        <p className="mt-4 text-center text-muted-foreground">
           Reading PDFs sometimes are just pain in the{" "}
           <span className="text-destructive">ass</span>.{" "}
           <span className="font-semibold text-primary">
@@ -32,7 +32,7 @@ export default function HomePage() {
           , summarizing PDFs is as easy as a click of a button.
         </p>
       </div>
-      <div className="flex gap-x-2 mt-4">
+      <div className="mt-4 flex gap-x-2">
         <Button
           variant={"outline"}
           asChild

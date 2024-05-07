@@ -9,7 +9,7 @@ export default function ResultBox() {
             <p>Generated summary will be shown here</p>
           </div> */}
 
-      <div className="w-full justify-end flex">
+      <div className="flex w-full justify-end">
         <Button
           variant={"outline"}
           size={"icon"}

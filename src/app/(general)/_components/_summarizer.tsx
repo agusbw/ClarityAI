@@ -51,8 +51,8 @@ export default function Summarizer() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="flex flex-col pt-4 gap-y-3 max-w-sm">
+    <div className="flex w-full flex-col items-center">
+      <div className="flex max-w-sm flex-col gap-y-3 pt-4">
         <div>
           <Input
             type="password"
@@ -101,8 +101,8 @@ export default function Summarizer() {
             }
           }}
         />
-        <div className="flex gap-x-3 items-center">
-          <p className="font-medium text-sm">Language: </p>
+        <div className="flex items-center gap-x-3">
+          <p className="text-sm font-medium">Language: </p>
           <Select
             onValueChange={(v: "id" | "en") => {
               setForm((prev) => {
@@ -123,7 +123,7 @@ export default function Summarizer() {
           </Select>
         </div>
         <Button
-          className="w-fit mx-auto rounded-full bg-accent/10 hover:bg-accent/20 font-semibold text-accent"
+          className="mx-auto w-fit rounded-full bg-accent/10 font-semibold text-accent hover:bg-accent/20"
           onClick={handleSubmit}
           disabled={isLoading}
           size={"lg"}
@@ -133,7 +133,7 @@ export default function Summarizer() {
       </div>
 
       {!isLoading && error ? (
-        <Alert className="bg-destructive/10 my-10 w-[550px] max-w-[100vw]">
+        <Alert className="my-10 w-[550px] max-w-[100vw] bg-destructive/10">
           <AlertTitle className="text-destructive">
             Failed to produce summary
           </AlertTitle>
@@ -146,10 +146,10 @@ export default function Summarizer() {
       {isLoading ? (
         <LoaderCircle
           size={40}
-          className="animate-spin my-12"
+          className="my-12 animate-spin"
         />
       ) : summary ? (
-        <div className="w-full justify-center my-12 border rounded-md p-5 prose shadow-lg bg-background">
+        <div className="prose my-12 w-full justify-center rounded-md border bg-background p-5 shadow-lg">
           <Markdown>{summary}</Markdown>
         </div>
       ) : null}

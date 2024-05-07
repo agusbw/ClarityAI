@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer className="py-4 mt-4 flex flex-col-reverse items-center md:flex-row md:justify-between">
+    <footer className="mt-4 flex flex-col-reverse items-center py-4 md:flex-row  md:justify-between">
       <p className="text-sm text-muted-foreground">
         @2024 ClarityAI. All right reserved.
       </p>

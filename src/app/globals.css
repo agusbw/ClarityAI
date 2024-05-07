@@ -77,6 +77,6 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-accent text-center via-teal-400 to-accent bg-clip-text inline-block text-transparent;
+    @apply inline-block bg-gradient-to-r from-accent via-teal-400 to-accent bg-clip-text text-center text-transparent;
   }
 }
