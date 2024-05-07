@@ -17,7 +17,7 @@ const navItems: ReadonlyArray<{
 
 export default function NavBar() {
   return (
-    <nav className="lg:px-16 py-3  px-8 border border-muted-foreground/20 flex items-center justify-between">
+    <nav className="lg:px-16 py-3 px-5 border border-muted-foreground/20 flex items-center justify-between">
       <div className="text-lg font-bold text-gradient">SummareaseAI</div>
       <div className="gap-x-4 flex font-semibold">
         {navItems.map((item) => (
