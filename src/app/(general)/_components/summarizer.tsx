@@ -123,20 +123,23 @@ export default function Summarizer() {
           </Select>
         </div>
         <Button
-          className="w-fit mx-auto rounded-full"
+          className="w-fit mx-auto rounded-full bg-teal-500/10 hover:bg-teal-500/20 font-semibold text-teal-600"
           onClick={handleSubmit}
           disabled={isLoading}
+          size={"lg"}
         >
           Summarize 🚀
         </Button>
       </div>
 
       {!isLoading && error ? (
-        <Alert className="bg-destructive/10 mt-10">
+        <Alert className="bg-destructive/10 mt-10 w-[550px] max-w-[100vw]">
           <AlertTitle className="text-destructive">
             Failed to produce summary
           </AlertTitle>
-          <AlertDescription className="text-destructive"></AlertDescription>
+          <AlertDescription className="text-destructive">
+            {error}
+          </AlertDescription>
         </Alert>
       ) : null}
 
@@ -146,7 +149,7 @@ export default function Summarizer() {
           className="animate-spin mt-12"
         />
       ) : summary ? (
-        <div className="w-full justify-center my-12 border rounded-md p-4 prose">
+        <div className="w-full justify-center my-12 border rounded-md p-5 prose shadow-lg bg-background">
           <Markdown>{summary}</Markdown>
         </div>
       ) : null}

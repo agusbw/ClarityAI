@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Montserrat as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Fast, AI-powered PDF Summarizer",
-  description: "Summarize your PDF easily with SummareaseAI!",
+  description: "Summarize your PDF easily with ClarityAI!",
 };
 
 export default function RootLayout({

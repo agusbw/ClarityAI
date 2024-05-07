@@ -3,7 +3,7 @@ import systemDesignImage from "@/../public/system-design.png";
 
 export default function HowPage() {
   return (
-    <div className="w-full flex flex-col justify-center items-center">
+    <div className="w-full flex flex-col justify-center items-center px-5 lg:px-0">
       <div className="flex justify-between items-center flex-col gap-5">
         <div className="border p-5">
           <Image
@@ -14,14 +14,16 @@ export default function HowPage() {
             placeholder="blur"
           />
         </div>
-        <div className="max-w-[100vw] space-y-4 text-justify">
+        <div className="max-w-[100vw] space-y-4 prose lg:px-80">
           <p>
             Above diagram illustrates the inner workings of{" "}
-            <span className="font-bold text-gradient">SummareaseAI</span> , our
-            AI-powered summarization tool. Here&apos;s a breakdown of how it
-            operates:
+            <span className="font-semibold text-primary">
+              Clarity<span className="text-teal-500">AI</span>
+            </span>{" "}
+            , our AI-powered summarization tool. Here&apos;s a breakdown of how
+            it operates:
           </p>
-          <ol className="list-disc ms-10">
+          <ol>
             <li className="list-item">
               <span className="font-bold text-gradient">
                 Direct Client-to-API Communication:
@@ -38,7 +40,10 @@ export default function HowPage() {
               <span className="font-bold text-gradient">
                 Utilization of Gemini Pro:
               </span>{" "}
-              SummareaseAI harnesses the advanced capabilities of{" "}
+              <span className="font-semibold text-primary">
+                Clarity<span className="text-teal-500">AI</span>
+              </span>{" "}
+              harnesses the advanced capabilities of{" "}
               <span className="font-semibold">Gemini Pro</span> model, accessed
               through the API interface provided by Google Gemini. This
               cutting-edge technology enables efficient and accurate
