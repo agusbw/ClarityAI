@@ -1,11 +1,9 @@
 import Image from "next/image";
 import systemDesignImage from "@/../public/system-design.png";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function HowPage() {
   return (
-    <main className="w-full flex flex-col justify-center items-center">
+    <div className="w-full flex flex-col justify-center items-center">
       <div className="flex justify-between items-center flex-col gap-5">
         <div className="border p-5">
           <Image
@@ -29,20 +27,22 @@ export default function HowPage() {
                 Direct Client-to-API Communication:
               </span>{" "}
               Requests from your browser are directly processed through the
-              OpenAI API, bypassing any intermediary servers. This streamlined
+              Gemini API, bypassing any intermediary servers. This streamlined
               approach ensures data security as{" "}
               <span className="text-destructive font-medium">
-                we do not retain any information, including your OpenAI API Key.
-              </span>
+                we do not retain any information, including your Gemini API Key.
+              </span>{" "}
+              <i>(See network tab)</i>
             </li>
             <li>
               <span className="font-bold text-gradient">
-                Utilization of GPT-3.5 Turbo:
+                Utilization of Gemini Pro:
               </span>{" "}
               SummareaseAI harnesses the advanced capabilities of{" "}
-              <span className="font-semibold">GPT-3.5 Turbo</span>, accessed
-              through the API interface provided by OpenAI. This cutting-edge
-              technology enables efficient and accurate summarization.
+              <span className="font-semibold">Gemini Pro</span> model, accessed
+              through the API interface provided by Google Gemini. This
+              cutting-edge technology enables efficient and accurate
+              summarization.
             </li>
             <li>
               <span className="font-bold text-gradient">Billing Process:</span>{" "}
@@ -58,6 +58,6 @@ export default function HowPage() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
