@@ -133,7 +133,7 @@ export default function Summarizer() {
       </div>
 
       {!isLoading && error ? (
-        <Alert className="bg-destructive/10 mt-10 w-[550px] max-w-[100vw]">
+        <Alert className="bg-destructive/10 my-10 w-[550px] max-w-[100vw]">
           <AlertTitle className="text-destructive">
             Failed to produce summary
           </AlertTitle>
@@ -146,7 +146,7 @@ export default function Summarizer() {
       {isLoading ? (
         <LoaderCircle
           size={40}
-          className="animate-spin mt-12"
+          className="animate-spin my-12"
         />
       ) : summary ? (
         <div className="w-full justify-center my-12 border rounded-md p-5 prose shadow-lg bg-background">
