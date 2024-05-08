@@ -1,11 +1,41 @@
 import { type ClassValue, clsx } from "clsx";
 import getModel from "./gemini";
 import { twMerge } from "tailwind-merge";
-import { type ConfigFormType } from "./types";
+import { type ConfigFormType, type BreadcrumbItem } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const trimPDFExtension = (fileName: string) => {
+  if (fileName.toLowerCase().endsWith(".pdf")) {
+    return fileName.slice(0, -4);
+  } else {
+    return fileName;
+  }
+};
+
+export const generateBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      path: "/",
+      label: "Home",
+    },
+  ];
+  let currentPath = "";
+
+  pathname.split("/").forEach((pathSegment) => {
+    if (pathSegment) {
+      currentPath += `/${pathSegment}`;
+      breadcrumbs.push({
+        path: currentPath,
+        label: pathSegment[0].toUpperCase() + pathSegment.slice(1),
+      });
+    }
+  });
+
+  return breadcrumbs;
+};
 
 export const generatePrompt = (data: ConfigFormType) => {
   let prompt;

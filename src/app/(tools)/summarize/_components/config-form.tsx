@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Key, Upload, Loader } from "lucide-react";
@@ -12,14 +14,12 @@ import {
 } from "@/components/ui/select";
 import Link from "next/link";
 import * as React from "react";
-import { type ConfigFormType } from "@/lib/types";
+import { type ConfigFormType, SummaryDataType } from "@/lib/types";
 import extractTextFromPDF from "pdf-parser-client-side";
 import { toast } from "sonner";
 import { generatePrompt, generateSummary } from "@/lib/utils";
-import { type ResultBoxDataType } from "./result-box";
-
 type ConfigFormProps = {
-  handleSummaryChange: React.Dispatch<React.SetStateAction<ResultBoxDataType>>;
+  handleSummaryChange: React.Dispatch<React.SetStateAction<SummaryDataType>>;
 };
 
 export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
@@ -110,7 +110,7 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
                 setForm((prev) => ({
                   ...prev,
                   textContent: data,
-                  fileName: file.name,
+                  fileName: file.name.replace(/\s/g, "-"),
                 }));
               });
             }
