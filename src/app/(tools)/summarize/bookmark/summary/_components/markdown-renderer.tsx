@@ -3,19 +3,15 @@
 import { BookmarkLocalStorageType, SummaryDataType } from "@/lib/types";
 import { useReadLocalStorage } from "usehooks-ts";
 import Markdown from "react-markdown";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { redirect, useSearchParams } from "next/navigation";
 import * as React from "react";
 
-export default function BookmarkPage({
-  params,
-}: {
-  params: {
-    fileName: string;
-  };
-}) {
+export default function MarkdownRenderer() {
   // consuming this data directly will cause error, local storage itu browser only API, jadi pas next.js prerender di server bakal kena hydration error
   const bookmark: BookmarkLocalStorageType | null =
     useReadLocalStorage("bookmark");
+  const searchParams = useSearchParams();
+  const fileName = searchParams.get("fileName");
 
   const [data, setData] = React.useState<
     | (SummaryDataType & {
@@ -25,20 +21,18 @@ export default function BookmarkPage({
   >(null);
 
   React.useEffect(() => {
-    setData(() => {
-      const s = bookmark?.find((v) => {
-        return v.fileName === params.fileName + ".pdf";
-      });
+    const s = bookmark?.find((v) => {
+      return v.fileName === fileName + ".pdf";
+    });
 
+    if (!s) {
+      redirect("/summarize/bookmark");
+    }
+
+    setData(() => {
       return s ? s : null;
     });
-  }, [bookmark, params.fileName]);
+  }, [bookmark, fileName]);
 
-  return (
-    <div className="pt-10 md:h-[78%]">
-      <ScrollArea className="h-full overflow-y-auto rounded-lg border p-5">
-        <Markdown className={"prose"}>{data?.summary}</Markdown>
-      </ScrollArea>
-    </div>
-  );
+  return <Markdown className={"prose"}>{data?.summary}</Markdown>;
 }

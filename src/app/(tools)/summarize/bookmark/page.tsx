@@ -26,7 +26,10 @@ export default function BookmarkPage() {
           ? summaries.map((sum) => (
               <Link
                 key={sum.fileName}
-                href={`/summarize/bookmark/${trimPDFExtension(sum.fileName)}`}
+                href={{
+                  pathname: "/summarize/bookmark/summary",
+                  query: { fileName: trimPDFExtension(sum.fileName) },
+                }}
                 className="flex justify-between border p-4"
               >
                 <p>{sum.fileName}</p>
