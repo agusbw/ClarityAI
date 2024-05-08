@@ -1,5 +1,8 @@
-export type FormType = {
-  apiKey: string;
-  textContent: string;
-  lang?: "id" | "en";
+export type ConfigFormType = {
+  apiKey: string | null;
+  textContent: string | null;
+  lang: "Bahasa Indonesia" | "English" | null;
+  domain: string | null;
+  tone: "Formal" | "Informal" | null;
+  format: "ai" | "Bullet Point" | "Paragraph";
 };
