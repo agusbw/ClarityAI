@@ -8,13 +8,27 @@ import {
 import { Bookmark } from "lucide-react";
 import Markdown from "react-markdown";
 import { toast } from "sonner";
-import { useLocalStorage } from "usehooks-ts";
+import { useLocalStorage, useMediaQuery } from "usehooks-ts";
+import * as React from "react";
 
 type ResultBoxProps = {
   data: SummaryDataType;
 };
 
 export default function ResultBox({ data }: ResultBoxProps) {
+  const resultBoxRef = React.useRef<HTMLDivElement>(null);
+  const mobile = useMediaQuery("(max-width: 768px)");
+
+  React.useEffect(() => {
+    if (data.fileName && data.summary && mobile) {
+      resultBoxRef?.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }
+  }, [data, mobile]);
+
   const [value, setValue] = useLocalStorage<BookmarkLocalStorageType>(
     "bookmark",
     [],
@@ -54,7 +68,7 @@ export default function ResultBox({ data }: ResultBoxProps) {
   };
 
   return (
-    <div>
+    <div ref={resultBoxRef}>
       {data.summary ? (
         <>
           <div className="flex h-full w-full justify-end">
@@ -71,7 +85,7 @@ export default function ResultBox({ data }: ResultBoxProps) {
           </div>
         </>
       ) : (
-        <div className="mt-20 text-center text-muted-foreground">
+        <div className="text-center text-muted-foreground md:mt-20">
           <p>Generated summary will be shown here.</p>
         </div>
       )}
