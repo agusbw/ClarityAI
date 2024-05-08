@@ -1,4 +1,4 @@
-import NavBar from "./_components/navbar";
+import Header from "./_components/header";
 import Footer from "./_components/footer";
 
 export default function GeneralLayout({
@@ -8,7 +8,7 @@ export default function GeneralLayout({
 }>) {
   return (
     <>
-      <NavBar />
+      <Header />
       <main className="min-h-[calc(100vh-133px)] pt-8 lg:pt-16">
         {children}
       </main>

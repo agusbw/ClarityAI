@@ -2,7 +2,7 @@
 
 import { BookmarkLocalStorageType } from "@/lib/types";
 import { useReadLocalStorage } from "usehooks-ts";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import * as React from "react";
 import { trimPDFExtension } from "@/lib/utils";
@@ -19,28 +19,33 @@ export default function BookmarkPage() {
   }, [data]);
 
   return (
-    <div className="h-full pt-6 md:h-[77%]">
+    <div className="max-h-full overflow-hidden pt-6">
       <h2 className="text-3xl font-bold">Your bookmarked summary</h2>
-      <ScrollArea className="mt-3 flex h-full flex-col gap-y-2">
+      <ScrollArea
+        type="always"
+        className="mt-3 flex h-full flex-col gap-y-2 overflow-y-auto pe-4"
+      >
         {summaries
           ? summaries.map((sum) => (
-              <Link
-                key={sum.fileName}
-                href={{
-                  pathname: "/summarize/bookmark/summary",
-                  query: { fileName: trimPDFExtension(sum.fileName) },
-                }}
-                className="flex justify-between border p-4"
-              >
-                <p>{sum.fileName}</p>
-                <p>
-                  {new Date(sum.createdAt).toLocaleDateString("en-US", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-              </Link>
+              <>
+                <Link
+                  key={sum.fileName}
+                  href={{
+                    pathname: "/summarize/bookmark/summary",
+                    query: { fileName: trimPDFExtension(sum.fileName) },
+                  }}
+                  className="flex justify-between border p-4"
+                >
+                  <p>{sum.fileName}</p>
+                  <p>
+                    {new Date(sum.createdAt).toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </p>
+                </Link>
+              </>
             ))
           : null}
       </ScrollArea>

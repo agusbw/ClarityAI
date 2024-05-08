@@ -7,7 +7,7 @@ export default function SummarizeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="p-4 md:h-screen md:max-h-screen md:overflow-hidden md:p-5 lg:px-16 lg:pt-20 xl:px-44">
+    <main className="grid grid-rows-[auto_1fr_auto] px-4 pt-4 md:h-screen md:max-h-screen md:px-4 md:pt-5 lg:px-16 lg:pt-12 xl:px-44">
       <Header />
       {children}
       <Footer />

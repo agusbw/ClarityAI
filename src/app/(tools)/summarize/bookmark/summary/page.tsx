@@ -4,8 +4,11 @@ import MarkdownRenderer from "./_components/markdown-renderer";
 
 export default function BookmarkPage() {
   return (
-    <div className="pt-10 md:h-[78%]">
-      <ScrollArea className="h-full overflow-y-auto rounded-lg border p-5">
+    <div className="overflow-y-auto pt-6">
+      <ScrollArea
+        type="always"
+        className="h-full overflow-y-auto rounded-lg border p-5"
+      >
         <Suspense>
           <MarkdownRenderer />
         </Suspense>

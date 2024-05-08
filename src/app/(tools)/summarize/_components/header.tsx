@@ -30,7 +30,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <div className="flex w-full flex-col gap-y-4 md:flex-row md:items-center md:justify-between md:gap-y-0">
+    <header className="flex w-full flex-col gap-y-4 md:flex-row md:items-center md:justify-between md:gap-y-0">
       <div>
         <h2 className="text-4xl font-bold">
           Clarity<span className="text-accent">AI</span>
@@ -94,6 +94,6 @@ export default function Header() {
           )}
         </Link>
       </Button>
-    </div>
+    </header>
   );
 }
