@@ -19,21 +19,18 @@ export default function HowPage() {
             Above diagram illustrates the inner workings of{" "}
             <span className="font-semibold text-primary">
               Clarity<span className="text-accent">AI</span>
-            </span>{" "}
-            , our AI-powered summarization tool. Here&apos;s a breakdown of how
-            it operates:
+            </span>
           </p>
           <ol>
             <li className="list-item">
               <span className="text-gradient font-bold">
-                Direct Client-to-API Communication:
+                Direct Client-to-API:
               </span>{" "}
               Requests from your browser are directly processed through the
-              Gemini API, bypassing any intermediary servers. This streamlined
-              approach ensures data security as{" "}
+              Gemini API, bypassing any intermediary servers.
               <span className="font-medium text-destructive">
-                we do not retain any information, including your Gemini API Key.
-              </span>{" "}
+                We do not retain any information, including your Gemini API Key.
+              </span>
               <i>(See network tab)</i>
             </li>
             <li>
@@ -43,23 +40,15 @@ export default function HowPage() {
               <span className="font-semibold text-primary">
                 Clarity<span className="text-accent">AI</span>
               </span>{" "}
-              harnesses the advanced capabilities of{" "}
+              This app uses
               <span className="font-semibold">Gemini Pro</span> model, accessed
-              through the API interface provided by Google Gemini. This
-              cutting-edge technology enables efficient and accurate
-              summarization.
-            </li>
-            <li>
-              <span className="text-gradient font-bold">Billing Process:</span>{" "}
-              Each time you generate a summary, billing occurs directly through
-              your account. The billing amount is determined by factors such as
-              the length of the text in your PDF and the extent of the
-              AI-generated summary.
+              through the API interface provided by Google Gemini. This enables
+              efficient and accurate summarization.
             </li>
           </ol>
           <p>
-            We appreciate your interest in understanding our tool&apos;s
-            functionality! <i>Warm regards, @agus_bw</i>
+            Appreciate your interest in understanding our tool&apos;s
+            functionality! <i>@agus_bw</i>
           </p>
         </div>
       </div>
