@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <nav className="px-5 lg:px-16 py-4 flex items-center justify-between">
+    <footer className="flex items-center justify-between px-5 py-4 lg:px-16">
       <p className="text-xs text-muted-foreground">
         © 2024 ClarityAI. All rights reserved.
       </p>
-    </nav>
+    </footer>
   );
 }

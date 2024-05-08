@@ -1,24 +1,63 @@
 import { type ClassValue, clsx } from "clsx";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import getModel from "./gemini";
 import { twMerge } from "tailwind-merge";
-import { type FormType } from "./types";
+import { type ConfigFormType, type BreadcrumbItem } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const generateSummary = async (data: FormType) => {
-  const genAI = new GoogleGenerativeAI(data.apiKey);
+export const trimPDFExtension = (fileName: string) => {
+  if (fileName.toLowerCase().endsWith(".pdf")) {
+    return fileName.slice(0, -4);
+  } else {
+    return fileName;
+  }
+};
 
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+export const generateBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      path: "/",
+      label: "Home",
+    },
+  ];
+  let currentPath = "";
 
-  const prompt = `You will be given text and your job is to summarize the text so that the text is easier to read and easier to understand. Please predict the type of text, for example a curriculum vitae, scientific journal, etc. Based on your prediction you can format your summary according to the type of text, for example if it is a scientific journal you can summarize the important parts of the scientific journal into several sections. You can also write as long as you can to cover all the important parts of the text. Use markdown syntax to present the summary created, take advantage of markdown syntax to make the summary easier to read. Do not write any additional text except the summary results in markdown syntax. You have to translate and write the summary in ${
-    data.lang === "id" ? "Bahasa Indonesia" : "English"
-  } language. This is the text:
-      
+  pathname.split("/").forEach((pathSegment) => {
+    if (pathSegment) {
+      currentPath += `/${pathSegment}`;
+      breadcrumbs.push({
+        path: currentPath,
+        label: pathSegment[0].toUpperCase() + pathSegment.slice(1),
+      });
+    }
+  });
+
+  return breadcrumbs;
+};
+
+export const generatePrompt = (data: ConfigFormType) => {
+  let prompt;
+
+  prompt = `You will be given text and your job is to summarize it for better readability and understanding. 
+  Predict the type or the title of text, for example a curriculum vitae, scientific journal, etc. Write your summary according to the predicted type, following these rules:
+  - Use beautiful markdown syntax.
+  - Do not write with any other format except in the markdown syntax.
+  - The domain of this text is ${data.domain}.
+  - Summarize the text in ${data.lang} even if it's in a different language.
+  ${data.format ? ` - Write the summary in ${data.format} format` : ""} 
+  - Maintain a ${data.tone} tone
+
+  This is the text:
+
   ${data.textContent}
   `;
 
+  return prompt;
+};
+
+export const generateSummary = async (apiKey: string, prompt: string) => {
   const parts = [
     {
       text: prompt,
@@ -26,10 +65,11 @@ export const generateSummary = async (data: FormType) => {
   ];
 
   try {
+    const model = getModel(apiKey);
     const result = await model.generateContent({
       contents: [{ role: "user", parts }],
       generationConfig: {
-        maxOutputTokens: 2133,
+        maxOutputTokens: 3000,
         temperature: 0.5,
       },
     });
@@ -39,7 +79,7 @@ export const generateSummary = async (data: FormType) => {
   } catch (err) {
     console.error(err);
     throw new Error(
-      "Failed to produce summary, please check your API KEY and usage limit."
+      "Failed to produce summary, please check your API KEY and usage limit.",
     );
   }
 };

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat as FontSans } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -26,6 +27,12 @@ export default function RootLayout({
         className={cn("bg-background font-sans antialiased", fontSans.variable)}
       >
         {children}
+        <Toaster
+          richColors
+          position="top-center"
+          theme="light"
+          toastOptions={{}}
+        />
       </body>
     </html>
   );

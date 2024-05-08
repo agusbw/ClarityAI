@@ -16,22 +16,22 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     if (Icon) {
       return (
-        <div className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors gap-x-2 items-center">
+        <div className="flex h-9 w-full items-center gap-x-2 rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors">
           <Icon.type
             {...Icon.props}
-            className="text-muted-foreground size-5"
+            className="size-5 text-muted-foreground"
           />
           <input
             type={
               type !== "password"
                 ? type
                 : isPasswordVisible
-                ? "text"
-                : "password"
+                  ? "text"
+                  : "password"
             }
             className={cn(
-              "file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0  disabled:cursor-not-allowed disabled:opacity-50 border-none w-full h-full",
-              className
+              "h-full w-full border-none file:border-0 file:bg-background file:text-sm file:font-medium  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
+              className,
             )}
             ref={ref}
             {...props}
@@ -41,7 +41,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {isPasswordVisible ? (
                 <Eye
                   size={14}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground transition-colors hover:text-primary"
                   onClick={() => {
                     setIsPasswordVisible(false);
                   }}
@@ -49,7 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               ) : (
                 <EyeOff
                   size={14}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground transition-colors hover:text-primary"
                   onClick={() => {
                     setIsPasswordVisible(true);
                   }}
@@ -62,14 +62,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     return (
-      <div className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors gap-x-2 items-center">
+      <div className="flex h-9 w-full items-center gap-x-2 rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors">
         <input
           type={
             type !== "password" ? type : isPasswordVisible ? "text" : "password"
           }
           className={cn(
-            "file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 border-none w-full h-full",
-            className
+            "h-full w-full border-none file:border-0 file:bg-background file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
+            className,
           )}
           ref={ref}
           {...props}
@@ -79,7 +79,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {isPasswordVisible ? (
               <Eye
                 size={14}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground transition-colors hover:text-primary"
                 onClick={() => {
                   setIsPasswordVisible(false);
                 }}
@@ -87,7 +87,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ) : (
               <EyeOff
                 size={14}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground transition-colors hover:text-primary"
                 onClick={() => {
                   setIsPasswordVisible(true);
                 }}
@@ -97,7 +97,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ) : null}
       </div>
     );
-  }
+  },
 );
 Input.displayName = "Input";
 
