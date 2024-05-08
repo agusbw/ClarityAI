@@ -192,7 +192,12 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
           <SelectTrigger>
             <SelectValue placeholder="Tone" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent
+            ref={(ref) =>
+              // temporary workaround from https://github.com/shadcn-ui/ui/issues/1220
+              ref?.addEventListener("touchend", (e) => e.preventDefault())
+            }
+          >
             <SelectItem value="formal">Formal</SelectItem>
             <SelectItem value="informal">Informal</SelectItem>
           </SelectContent>
@@ -209,7 +214,12 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
           <SelectTrigger>
             <SelectValue placeholder="Summary language" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent
+            ref={(ref) =>
+              // temporary workaround from https://github.com/shadcn-ui/ui/issues/1220
+              ref?.addEventListener("touchend", (e) => e.preventDefault())
+            }
+          >
             <SelectItem value="Bahasa Indonesia">Indonesia 🇮🇩</SelectItem>
             <SelectItem value="English">English 🇬🇧</SelectItem>
           </SelectContent>
