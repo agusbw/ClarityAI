@@ -16,9 +16,10 @@ import { type ConfigFormType } from "@/lib/types";
 import extractTextFromPDF from "pdf-parser-client-side";
 import { toast } from "sonner";
 import { generatePrompt, generateSummary } from "@/lib/utils";
+import { type ResultBoxDataType } from "./result-box";
 
 type ConfigFormProps = {
-  handleSummaryChange: React.Dispatch<React.SetStateAction<string | null>>;
+  handleSummaryChange: React.Dispatch<React.SetStateAction<ResultBoxDataType>>;
 };
 
 export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
@@ -29,6 +30,7 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
     lang: null,
     textContent: null,
     tone: null,
+    fileName: null,
   });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
@@ -40,16 +42,22 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
       !form.lang ||
       !form.lang ||
       !form.textContent ||
-      !form.tone
+      !form.tone! ||
+      !form.fileName
     ) {
       toast.error("Provide all the configuration before generate summary!");
       return;
     }
     const prompt = generatePrompt(form);
+
     try {
       setIsLoading(true);
       const result = await generateSummary(form.apiKey, prompt);
-      handleSummaryChange(result);
+      handleSummaryChange({
+        fileName: form.fileName,
+        summary: result,
+      });
+      toast.success("Knock knock, the summary's ready!");
     } catch (err) {
       if (err instanceof Error) {
         toast.error(err.message);
@@ -102,6 +110,7 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
                 setForm((prev) => ({
                   ...prev,
                   textContent: data,
+                  fileName: file.name,
                 }));
               });
             }

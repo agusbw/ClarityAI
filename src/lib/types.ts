@@ -5,4 +5,5 @@ export type ConfigFormType = {
   domain: string | null;
   tone: "Formal" | "Informal" | null;
   format: "ai" | "Bullet Point" | "Paragraph";
+  fileName: string | null;
 };
