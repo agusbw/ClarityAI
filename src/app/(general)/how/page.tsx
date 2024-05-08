@@ -27,7 +27,7 @@ export default function HowPage() {
                 Direct Client-to-API:
               </span>{" "}
               Requests from your browser are directly processed through the
-              Gemini API, bypassing any intermediary servers.
+              Gemini API, bypassing any intermediary servers.{" "}
               <span className="font-medium text-destructive">
                 We do not retain any information, including your Gemini API Key.
               </span>
@@ -40,15 +40,14 @@ export default function HowPage() {
               <span className="font-semibold text-primary">
                 Clarity<span className="text-accent">AI</span>
               </span>{" "}
-              This app uses
-              <span className="font-semibold">Gemini Pro</span> model, accessed
-              through the API interface provided by Google Gemini. This enables
-              efficient and accurate summarization.
+              This app uses <span className="font-semibold">Gemini Pro</span>{" "}
+              model, accessed through the API interface provided by Google
+              Gemini. This enables efficient and accurate summarization.
             </li>
           </ol>
           <p>
-            Appreciate your interest in understanding our tool&apos;s
-            functionality! <i>@agus_bw</i>
+            Appreciate your interest in understanding tool&apos;s functionality!{" "}
+            <i>@agus_bw</i>
           </p>
         </div>
       </div>
