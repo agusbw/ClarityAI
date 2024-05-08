@@ -13,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { generateBreadcrumbs } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 import * as React from "react";
 import { type BreadcrumbItem as BreadcrumbItemType } from "@/lib/types";
 
@@ -41,25 +42,26 @@ export default function Header() {
         </p>
         <Breadcrumb>
           <BreadcrumbList>
-            {breadcrumb
-              ? breadcrumb.map((b, index) => (
-                  <>
-                    <BreadcrumbItem>
-                      {index < breadcrumb.length - 1 ? (
-                        <BreadcrumbLink asChild>
-                          <Link href={b.path}> {b.label}</Link>
-                        </BreadcrumbLink>
-                      ) : (
-                        <BreadcrumbPage>{b.label}</BreadcrumbPage>
-                      )}
-
-                      {index < breadcrumb.length - 1 ? (
-                        <BreadcrumbSeparator />
-                      ) : null}
-                    </BreadcrumbItem>
-                  </>
-                ))
-              : null}
+            {breadcrumb ? (
+              breadcrumb.map((b, index) => (
+                <React.Fragment key={b.path}>
+                  <BreadcrumbItem>
+                    {index < breadcrumb.length - 1 ? (
+                      <BreadcrumbLink asChild>
+                        <Link href={b.path}> {b.label}</Link>
+                      </BreadcrumbLink>
+                    ) : (
+                      <BreadcrumbPage>{b.label}</BreadcrumbPage>
+                    )}
+                  </BreadcrumbItem>
+                  {index < breadcrumb.length - 1 ? (
+                    <BreadcrumbSeparator />
+                  ) : null}
+                </React.Fragment>
+              ))
+            ) : (
+              <Skeleton className="h-5 w-36 rounded-none" />
+            )}
           </BreadcrumbList>
         </Breadcrumb>
       </div>
