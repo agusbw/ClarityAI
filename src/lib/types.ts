@@ -1,3 +1,6 @@
+import React from "react";
+import { LucideProps } from "lucide-react";
+
 export type ConfigFormType = {
   apiKey: string | null;
   textContent: string | null;
@@ -20,4 +23,17 @@ export type SummaryDataType = {
 export type BreadcrumbItem = {
   path: string;
   label: string;
+};
+
+export type NavItem = {
+  href: string;
+  title: string;
+};
+
+export type FeatureCard = {
+  title: string;
+  text: string;
+  Icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
 };

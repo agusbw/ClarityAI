@@ -3,9 +3,12 @@ import systemDesignImage from "@/../public/system-design.png";
 
 export default function HowPage() {
   return (
-    <div className="flex w-full flex-col items-center justify-center px-5 lg:px-0">
-      <div className="flex flex-col items-center justify-between gap-5">
-        <div className="border p-5">
+    <div className="mt-12 flex w-full flex-col items-center justify-center px-5 lg:px-0">
+      <div className="flex flex-col items-center justify-between gap-5 ">
+        <h2 className="text-center text-3xl font-bold">
+          Clarity<span className="text-accent">AI</span> - Behind the scene
+        </h2>
+        <div className="border">
           <Image
             src={systemDesignImage}
             alt="SummariseAI's system design"
@@ -14,7 +17,7 @@ export default function HowPage() {
             placeholder="blur"
           />
         </div>
-        <div className="prose max-w-[100vw] space-y-4 lg:px-80">
+        <section className="prose max-w-[100vw] space-y-4 lg:px-80">
           <p>
             Above diagram illustrates the inner workings of{" "}
             <span className="font-semibold text-primary">
@@ -49,7 +52,7 @@ export default function HowPage() {
             Appreciate your interest in understanding tool&apos;s functionality!{" "}
             <i>@agus_bw</i>
           </p>
-        </div>
+        </section>
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
       <div>
         <Input
           type="password"
-          Icon={<Key />}
+          Icon={Key}
           placeholder="Enter Gemini API Key"
           value={form.apiKey ? form.apiKey : ""}
           onChange={(e) =>
@@ -101,7 +101,7 @@ export default function ConfigForm({ handleSummaryChange }: ConfigFormProps) {
         type="file"
         multiple={false}
         accept=".pdf"
-        Icon={<Upload />}
+        Icon={Upload}
         onChange={(e) => {
           if (e.target.files) {
             const file = e.target.files[0];
