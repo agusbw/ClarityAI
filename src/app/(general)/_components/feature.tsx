@@ -20,7 +20,7 @@ import React from "react";
 
 export default function Feature() {
   return (
-    <section className="my-24">
+    <section className="my-16 lg:my-24">
       <div className="grid grid-cols-1 space-y-6 md:max-w-none md:grid-cols-3 md:space-x-4 md:space-y-0">
         {featureList.map((feat) => (
           <FeatureCard
