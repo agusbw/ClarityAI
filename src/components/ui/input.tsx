@@ -1,12 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { Eye, EyeOff, icons } from "lucide-react";
+import { Eye, EyeOff, LucideProps } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  Icon?: React.ReactElement;
+  Icon?: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -17,10 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     if (Icon) {
       return (
         <div className="flex h-9 w-full items-center gap-x-2 rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors">
-          <Icon.type
-            {...Icon.props}
-            className="size-5 text-muted-foreground"
-          />
+          <Icon className="size-5 text-muted-foreground" />
           <input
             type={
               type !== "password"
